@@ -1,0 +1,9 @@
+﻿@model Product
+
+<tr>
+    <td>@Model.Quantity</td>
+    <td> @Model.Ingredient</td>
+    <td><button type="submit" asp-action="TakeProductOutCart" class="btn btn-danger" asp-route-id="@Model.Id" style="width: 95%"><i class="fa fa-trash"></i></button></td>
+    <td> @Model.Price </td>
+</tr>
+

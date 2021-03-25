@@ -1,0 +1,56 @@
+﻿@model ShopModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="row">
+    <div id="Products" class="col col-md-6">
+        <form method="post">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Model.Products)
+                    {
+                        <partial name="FrietshopPartial" model="product" />
+                    }
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <div class="col col-md-6">
+        <div id="TitleOrderCart">
+            <div id="Shoppingcart">
+                <form method="post">
+                    <table class="table table-light">
+                        <thead>
+                            <tr>
+                                <th>Quantity</th>
+                                <th>Product</th>
+                                <th></th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var orderCart in Model.OrderCart.ProductsInCart)
+                            {
+                                <partial name="OrderCartPartial" model="orderCart" />
+                            }
+                            <tr><td>Total Cost: </td> <td colspan="2">@Model.OrderCart.TotalPrice</td></tr>
+                            <tr>
+                                <td colspan="3" style="text-align: center">
+                                    <button type="submit" asp-controller="Checkout" asp-action="Index">
+                                        Check your order
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

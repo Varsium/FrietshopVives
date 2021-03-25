@@ -1,0 +1,8 @@
+﻿@model Product
+
+    <tr>
+        <td> <button type="submit" asp-action="PutProductInCart" asp-route-id="@Model.Id" class="btn btn-light" style="width: 80%">@Model.Ingredient</button></td>
+        <td> @Model.Price </td>
+    </tr>
+
+

@@ -1,0 +1,27 @@
+﻿@model OrderCart
+
+<div id="Shoppingcart">
+    <form method="post">
+        <table class="table table-light">
+            <thead>
+                <tr>
+                    <th>Quantity</th>
+                    <th>Product</th>
+                    <th></th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var orderCart in Model.ProductsInCart)
+                {
+                    <partial name="OrderCartPartial" model="orderCart" />
+                }
+                <tr>
+                    <td>Total Cost: </td>
+                    <td>@Model.TotalPrice</td>
+                    <td><a class="btn btn-success" asp-action="Pay">Click here to confirm your order</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>

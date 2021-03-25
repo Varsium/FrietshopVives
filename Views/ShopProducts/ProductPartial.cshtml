@@ -1,0 +1,9 @@
+﻿@model Product
+
+<tr>
+    <td>@Model.Price</td>
+    <td>@Model.Ingredient</td>
+    <td>@Model.Quantity</td>
+    <td><a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Id">Edit Product</a></td>
+    <td><a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.Id">Delete Product</a></td>
+</tr>

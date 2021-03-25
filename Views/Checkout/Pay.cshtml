@@ -1,0 +1,30 @@
+﻿
+<script src="https://www.paypal.com/sdk/js?client-id=sb&components=buttons,marks"></script>
+<div id="paypal-buttons-container"></div>
+<div id="alternate-button-container">
+    <button>Pay with a different method</button>
+</div>
+
+<script>
+    paypal.Marks().render('#paypal-marks-container');
+    paypal.Buttons().render('#paypal-buttons-container');
+    document.querySelectorAll('input[name=payment-option]')
+        .forEach(function (el) {
+            el.addEventListener('change', function (event) {
+                if (event.target.value === 'paypal') {
+                    document.body.querySelector('#alternate-button-container')
+                        .style.display = 'none';
+                    document.body.querySelector('#paypal-button-container')
+                        .style.display = 'block';
+                }
+                if (event.target.value === 'alternate') {
+                    document.body.querySelector('#alternate-button-container')
+                        .style.display = 'block';
+                    document.body.querySelector('#paypal-button-container')
+                        .style.display = 'none';
+                }
+            });
+        });
+    document.body.querySelector('#alternate-button-container')
+        .style.display = 'none';
+</script>
